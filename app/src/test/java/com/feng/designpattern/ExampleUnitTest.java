@@ -10,8 +10,21 @@ import com.feng.designpattern.抽象工厂模式.CacheService;
 import com.feng.designpattern.抽象工厂模式.factory.JDKProxy;
 import com.feng.designpattern.抽象工厂模式.factory.impl.EGMCacheAdapter;
 import com.feng.designpattern.抽象工厂模式.impl.CacheServiceImpl;
+import com.feng.designpattern.桥接模式.channel.WxPay;
+import com.feng.designpattern.桥接模式.mode.PayFaceMode;
+import com.feng.designpattern.桥接模式.mode.PayFingerprintMode;
+import com.feng.designpattern.装饰模式.ChineseStyle;
+import com.feng.designpattern.装饰模式.RedDecorator;
+import com.feng.designpattern.适配器模式.AC;
+import com.feng.designpattern.适配器模式.AC110;
+import com.feng.designpattern.适配器模式.AC220;
+import com.feng.designpattern.适配器模式.adapter.ChinaPowerAdapter;
+import com.feng.designpattern.适配器模式.adapter.IDC5Adapter;
+import com.feng.designpattern.适配器模式.adapter.JapanPowerAdapter;
 
 import org.junit.Test;
+
+import java.math.BigDecimal;
 
 import static org.junit.Assert.*;
 
@@ -63,4 +76,38 @@ public class ExampleUnitTest {
         System.out.println(questionBankController.createpaper("小红", "456"));
         System.out.println(questionBankController.createpaper("小花", "789"));
     }
+
+
+    @Test
+    public void test_ACAdapter() {
+        AC220 ac220 = new AC220();
+        AC110 ac110 = new AC110();
+        IDC5Adapter chinaPowerAdapter = new ChinaPowerAdapter();
+        IDC5Adapter japanPowerAdapter = new JapanPowerAdapter();
+
+
+        if (chinaPowerAdapter.support(ac110)) {
+            System.out.print(chinaPowerAdapter.outputDC5V(ac110));
+        }
+    }
+
+
+    @Test
+    public void test_apy() {
+
+
+        WxPay wxPay = new WxPay(new PayFingerprintMode());
+        wxPay.transfer("123", "456", new BigDecimal(9));
+    }
+
+
+    @Test
+    public void test_Decorator() {
+        ChineseStyle chineseStyle = new ChineseStyle();
+//        chineseStyle.sytle();
+
+        RedDecorator redDecorator = new RedDecorator(chineseStyle);
+        redDecorator.sytle();
+    }
+
 }
