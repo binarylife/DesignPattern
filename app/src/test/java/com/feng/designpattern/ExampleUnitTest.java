@@ -1,26 +1,18 @@
 package com.feng.designpattern;
 
-import com.feng.designpattern.原型模式.QuestionBank;
-import com.feng.designpattern.原型模式.QuestionBankController;
-import com.feng.designpattern.工厂方法模式.Store.ICommodity;
-import com.feng.designpattern.工厂方法模式.Store.StoreFactory;
-import com.feng.designpattern.建造者模式.Builder;
-import com.feng.designpattern.建造者模式.IMenu;
-import com.feng.designpattern.抽象工厂模式.CacheService;
-import com.feng.designpattern.抽象工厂模式.factory.JDKProxy;
-import com.feng.designpattern.抽象工厂模式.factory.impl.EGMCacheAdapter;
-import com.feng.designpattern.抽象工厂模式.impl.CacheServiceImpl;
-import com.feng.designpattern.桥接模式.channel.WxPay;
-import com.feng.designpattern.桥接模式.mode.PayFaceMode;
-import com.feng.designpattern.桥接模式.mode.PayFingerprintMode;
-import com.feng.designpattern.装饰模式.ChineseStyle;
-import com.feng.designpattern.装饰模式.RedDecorator;
-import com.feng.designpattern.适配器模式.AC;
-import com.feng.designpattern.适配器模式.AC110;
-import com.feng.designpattern.适配器模式.AC220;
-import com.feng.designpattern.适配器模式.adapter.ChinaPowerAdapter;
-import com.feng.designpattern.适配器模式.adapter.IDC5Adapter;
-import com.feng.designpattern.适配器模式.adapter.JapanPowerAdapter;
+import com.feng.designpattern.创建型.原型模式.QuestionBankController;
+import com.feng.designpattern.创建型.工厂方法模式.Store.ICommodity;
+import com.feng.designpattern.创建型.工厂方法模式.Store.StoreFactory;
+import com.feng.designpattern.创建型.建造者模式.Builder;
+import com.feng.designpattern.结构型.桥接模式.channel.WxPay;
+import com.feng.designpattern.结构型.桥接模式.mode.PayFingerprintMode;
+import com.feng.designpattern.结构型.装饰模式.ChineseStyle;
+import com.feng.designpattern.结构型.装饰模式.RedDecorator;
+import com.feng.designpattern.结构型.适配器模式.AC110;
+import com.feng.designpattern.结构型.适配器模式.AC220;
+import com.feng.designpattern.结构型.适配器模式.adapter.ChinaPowerAdapter;
+import com.feng.designpattern.结构型.适配器模式.adapter.IDC5Adapter;
+import com.feng.designpattern.结构型.适配器模式.adapter.JapanPowerAdapter;
 
 import org.junit.Test;
 
@@ -50,13 +42,6 @@ public class ExampleUnitTest {
 
     @Test
     public void test_cacheAdapter() {
-        try {
-            CacheService proxy_EGM = JDKProxy.getProxy(CacheServiceImpl.class, new
-                    EGMCacheAdapter());
-            proxy_EGM.set("test", "test01");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
     }
 
 

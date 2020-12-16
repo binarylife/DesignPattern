@@ -1,7 +1,7 @@
 package com.feng.designpattern;
 
-import com.feng.designpattern.建造者模式.IMenu;
-import com.feng.designpattern.建造者模式.Matter;
+import com.feng.designpattern.创建型.建造者模式.IMenu;
+import com.feng.designpattern.创建型.建造者模式.Matter;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
